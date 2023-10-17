@@ -1,4 +1,5 @@
 import { isValidElement, useState } from "react"
+import LikesDislikes from "./counter";
 
 export default function Blog() {
     const posted = new Date();
@@ -7,6 +8,7 @@ export default function Blog() {
     const [image, setImage] = useState("");
     const [content, setContent] = useState("");
     const [blogs, setBlogs] = useState([])
+
 
     const titleInput = (e) => {
         setBlogTitle(e.target.value)
@@ -29,6 +31,8 @@ export default function Blog() {
 
         setBlogs([...blogs, createBlog])
     }
+
+
 
     return (
         <>
@@ -54,11 +58,14 @@ export default function Blog() {
             return (
                 <div key={blog.id}>
                     <p>{blog.blogTitle}</p>
-                    <p>Posted on: {(posted.getMonth() + 1) + "/" + posted.getDate() + " " + posted.getHours() + ":" + posted.getMinutes()}</p>
+                    <p>Posted on: {posted.getDate() + "." + (posted.getMonth()+1) + ". at " + posted.getHours() + ":" + posted.getMinutes()}</p>
                     <p>{blog.name}</p>
                     <img src={blog.image} height={100}/>
                     <p>{blog.content}</p>
-                    <button onClick={(e) => {const deleteBlogs = blogs.filter((deleteSingleBlog) => {return deleteSingleBlog.id !== blog.id;}); setBlogs(deleteBlogs);}}>Delete</button>
+                    <button onClick={() => {const deleteBlogs = blogs.filter((deleteSingleBlog) => {return deleteSingleBlog.id !== blog.id;}); setBlogs(deleteBlogs);}}>Delete</button>
+                    <button>Like</button>
+                    {/* <button onClick={() => {setDislikes(dislikes + 1)}}>Dislike</button>{dislikes} */}
+                    <LikesDislikes />
                 </div>
             )
         })}
