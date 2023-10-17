@@ -80,7 +80,7 @@ label {
 .blogElement {
   display: grid;
   grid-template-columns: 110px 50%;
-  grid-template-rows: 25px 35px 1fr 1fr;
+  grid-template-rows: 25px 35px 150px 1fr;
 }
 /* .blogElement div {
   border: 1px solid black
@@ -90,7 +90,7 @@ label {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
-  grid-row-end: 4;
+  grid-row-end: 3;
   max-width: fit-content;
   display: flex;
   align-items: center;
@@ -98,6 +98,8 @@ label {
 
 .imgContainer img {
   border-radius: 50%;
+  width: 100px;
+  height: 100px;
 }
 
 .author-date {
@@ -131,4 +133,29 @@ label {
   grid-column-start: 2;
   grid-row-start: 4;
   grid-row-end: 5;
+}
+
+.commentInputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.commentInputContainer input {
+  width: 15rem;
+  margin-bottom: 1rem;
+}
+
+.commentInputContainer textarea {
+  width: 25rem;
+  height: 5rem;
+  margin-bottom: 1rem;
+}
+
+.singleComment h5{
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+.singleComment p{
+  margin-bottom: 1rem;
 }

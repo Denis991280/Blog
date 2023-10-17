@@ -1,14 +1,14 @@
 import { isValidElement, useState } from "react"
 import LikesDislikes from "./counter";
-import Comments from "./Comments";
 
 export default function Blog() {
-    const posted = new Date();
     const [blogTitle, setBlogTitle] = useState("");
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const [content, setContent] = useState("");
     const [blogs, setBlogs] = useState([])
+    const [date, setDate] = useState("")
+
 
 
     const titleInput = (e) => {
@@ -28,9 +28,13 @@ export default function Blog() {
     }
 
     const submitBlog = () => {
-        const createBlog = {id: new Date().getTime(), blogTitle, name, image, content}
+        const createBlog = {id: new Date().getTime(), blogTitle, name, image, content, date}
 
         setBlogs([...blogs, createBlog])
+    }
+
+    const submitDate = () => {
+        setDate(new Date().getDate() + "." + (new Date().getMonth()) + ". at " + new Date().getHours() + ":" + new Date().getMinutes())
     }
 
 
@@ -53,6 +57,7 @@ export default function Blog() {
                 </div>
                 <textarea onChange={contentInput} placeholder="Enter the content of your blog:"></textarea>
                 <button onClick={submitBlog}>Post</button>
+                <input class="hiddenDate" type="text" onChange={submitDate}/>
             </div>
 
             <div className="previewContainer">
@@ -74,7 +79,7 @@ export default function Blog() {
 
                     <div className="author-date">
                         <p>{element.name}</p>
-                        <p>Posted on: {posted.getDate() + "." + (posted.getMonth()+1) + ". at " + posted.getHours() + ":" + posted.getMinutes()}</p>
+                        <p>Posted on: {element.date}</p>
                     </div>
 
                     <div className="titleContainer">

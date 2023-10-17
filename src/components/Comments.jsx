@@ -23,14 +23,17 @@ export default function Comments() {
 
     return(
         <>
-            <input onChange={commentTitleInput}type="text" placeholder="Comment title" />
+        <div className="commentInputContainer">
+            <input onChange={commentTitleInput}type="text" placeholder="Enter your name" />
             <textarea onChange={commentContentInput}></textarea>
             <button onClick={submitComment}>Comment</button>
+        </div>
+
 
             {comments.map((element) => {
             return (
                 <div className="singleComment" key={element.id}>
-                    <p>{element.commentTitle}</p>
+                    <h5>{element.commentTitle}</h5>
                     <p>{element.commentContent}</p>
                 </div>
             )
