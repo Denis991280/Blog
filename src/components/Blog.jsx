@@ -39,16 +39,24 @@ export default function Blog() {
         <>
         <div className="formContainer">
             <div className="blogForm">
-                <h2>Post your blog!</h2>
-                <label>Title: <input onChange={titleInput} type="text" placeholder="Name the title of your blog" /></label>
-                <label>Author: <input onChange={nameInput} type="text" placeholder="Enter your name" /></label>
-                <label>Image URL: <input onChange={imageInput} type="text" placeholder="URL of the img" /></label>
+                <h2>Whats on your mind?</h2>
+                <div>
+                    <label className="labels">Title: <input onChange={titleInput} type="text" placeholder="Name the title of your blog" /></label>
+                </div>
+
+                <div>
+                    <label className="labels">Author: <input onChange={nameInput} type="text" placeholder="Enter your name" /></label>
+                </div>
+
+                <div>
+                    <label className="labels">Image URL: <input onChange={imageInput} type="text" placeholder="URL of the img" /></label>
+                </div>
                 <textarea onChange={contentInput} placeholder="Enter the content of your blog:"></textarea>
                 <button onClick={submitBlog}>Post</button>
             </div>
 
             <div className="previewContainer">
-                <h2>Blog preview</h2>
+                <h2>Post preview</h2>
                 <p>{blogTitle}</p>
                 <p>{name}</p>
                 <textarea>{content}</textarea>
@@ -72,20 +80,16 @@ export default function Blog() {
                     <div className="titleContainer">
                         <p>{element.blogTitle}</p>
                     </div>
+                    
+                    <div className="contentContainer">
+                        <p>{element.content}</p>
+                    </div>
 
                     <div className="buttonsContainer">
                         <button onClick={() => {const deleteBlogs = blogs.filter((deleteSingleBlog) => {return deleteSingleBlog.id !== element.id;}); setBlogs(deleteBlogs);}}>Delete</button>
                         <LikesDislikes />
                     </div>
-
-
                 </div>
-
-                <div className="contentContainer">
-                    <p>{element.content}</p>
-                </div>
-
-                <Comments />
                 </>
             )
         })}

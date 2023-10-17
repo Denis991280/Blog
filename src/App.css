@@ -8,6 +8,30 @@
   display: flex;
   justify-content: center;
   gap: 5%;
+  margin-top: 1%;
+}
+
+.formContainer h2 {
+  margin-bottom: 1%;
+}
+
+label {
+  display: inline-block;
+  width: 350px;
+  text-align: right;
+  margin-left: -8%;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.formContainer input {
+  font-size: 1.1rem;
+}
+
+.formContainer input::placeholder {
+  font-size: 0.9rem;
+  padding-left: 5px;
 }
 
 .previewContainer {
@@ -23,6 +47,7 @@
 
 .blogForm button {
   width: 10%;
+  margin-top: 2%;
 }
 
 .blogForm textarea {
@@ -48,22 +73,31 @@
 }
 
 .postContainer {
-  margin-left: 35%;
+  margin-left: 30%;
+  margin-top: 5%;
 }
 
 .blogElement {
   display: grid;
-  grid-template-columns: 15% 50%;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 110px 50%;
+  grid-template-rows: 25px 35px 1fr 1fr;
 }
-.blogElement div {
+/* .blogElement div {
   border: 1px solid black
-}
+} */
 
 .imgContainer {
   grid-column-start: 1;
+  grid-column-end: 2;
   grid-row-start: 1;
-  grid-row-end: 3;
+  grid-row-end: 4;
+  max-width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.imgContainer img {
+  border-radius: 50%;
 }
 
 .author-date {
@@ -81,10 +115,10 @@
 }
 
 .contentContainer {
-  grid-column-start: 1;
+  grid-column-start: 2;
   grid-column-end: 3;
-  grid-row-start: 4;
-  grid-row-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 4;
   height: 100%;
   width: 100%;
 }
@@ -95,6 +129,6 @@
 
 .buttonsContainer {
   grid-column-start: 2;
-  grid-row-start: 3;
-  grid-row-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 5;
 }

@@ -16,7 +16,7 @@ export default function LikesDislikes() {
         setLikes(likes + 1);
     }
 
-    const showCommentsBtn = () => {
+const showCommentsBtn = () => {
         if(commentsToggleBtn === "commentsContainer") {
             setCommentsToggleBtn("commentsContainerDisabled")
         } else {
