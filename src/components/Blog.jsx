@@ -75,7 +75,7 @@ export default function Blog() {
                     </div>
 
                     <div className="titleContainer">
-                        <p>{element.blogTitle}</p>
+                        <h2>{element.blogTitle}</h2>
                     </div>
                     
                     <div className="contentContainer">

@@ -62,6 +62,7 @@ label {
 .commentsContainer {
   padding: 3%;
   background-color: white;
+  margin-top: 3%;
 }
 
 .commentsContainerDisabled {
@@ -121,12 +122,14 @@ label {
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 4;
-  height: 100%;
-  width: 100%;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin-bottom: 20px;
 }
 
 .contentContainer p{
   word-wrap: break-word;
+  padding: 10px;
 }
 
 .buttonsContainer {
