@@ -45,7 +45,7 @@ export default function Blog() {
             <div className="blogForm">
                 <h2>Whats on your mind?</h2>
                 <div>
-                    <label className="labels">Title: <input onChange={titleInput} type="text" placeholder="Name the title of your blog" /></label>
+                    <label className="labels">Title: <input onChange={titleInput} type="text" placeholder="Name the title of your post" /></label>
                 </div>
 
                 <div>
@@ -53,18 +53,10 @@ export default function Blog() {
                 </div>
 
                 <div>
-                    <label className="labels">Image URL: <input onChange={imageInput} type="text" placeholder="URL of the img" /></label>
+                    <label className="labels">Image URL: <input onChange={imageInput} type="text" placeholder="URL of your image" /></label>
                 </div>
-                <textarea onChange={contentInput} placeholder="Enter the content of your blog:"></textarea>
-                <button onClick={submitBlog}>Post</button>
-                <input class="hiddenDate" type="text" onChange={submitDate}/>
-            </div>
-
-            <div className="previewContainer">
-                <h2>Post preview</h2>
-                <p>{blogTitle}</p>
-                <p>{name}</p>
-                <textarea>{content}</textarea>
+                <textarea onChange={contentInput} placeholder="Enter the content of your post:"></textarea>
+                <button onClick={() => {submitBlog(); submitDate()}}>Post</button>
             </div>
         </div>
 
@@ -91,7 +83,7 @@ export default function Blog() {
                     </div>
 
                     <div className="buttonsContainer">
-                        <button onClick={() => {const deleteBlogs = blogs.filter((deleteSingleBlog) => {return deleteSingleBlog.id !== element.id;}); setBlogs(deleteBlogs);}}>Delete</button>
+                    <i class="fa-solid fa-trash fa-lg" onClick={() => {const deleteBlogs = blogs.filter((deleteSingleBlog) => {return deleteSingleBlog.id !== element.id;}); setBlogs(deleteBlogs);}}></i> 
                         <LikesDislikes />
                     </div>
                 </div>

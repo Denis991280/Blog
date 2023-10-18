@@ -13,7 +13,11 @@ export default function Comments() {
     }
 
     const commentTitleInput = (e) => {
-        setCommentTitle(e.target.value)
+        if(commentTitle === "") {
+            setCommentTitle("Anonymous")
+        } else {
+            setCommentTitle(e.target.value)
+        }
     }
 
     const commentContentInput = (e) => {
@@ -24,9 +28,9 @@ export default function Comments() {
     return(
         <>
         <div className="commentInputContainer">
-            <input onChange={commentTitleInput}type="text" placeholder="Enter your name" />
-            <textarea onChange={commentContentInput}></textarea>
-            <button onClick={submitComment}>Comment</button>
+            <input onChange={commentTitleInput}type="text" placeholder="Enter your name or leave blank for anonymous" />
+            <textarea onChange={commentContentInput} placeholder="Type your comment here"></textarea>
+            <button onClick={() => {submitComment(); commentTitleInput()}}>Comment</button>
         </div>
 
 
