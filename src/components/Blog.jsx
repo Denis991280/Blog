@@ -4,7 +4,7 @@ import LikesDislikes from "./counter";
 export default function Blog() {
     const [blogTitle, setBlogTitle] = useState("");
     const [name, setName] = useState("");
-    const [image, setImage] = useState("");
+    const [image, setImage] = useState("assets/215.jpg");
     const [content, setContent] = useState("");
     const [blogs, setBlogs] = useState([])
     const [date, setDate] = useState("")
@@ -28,7 +28,7 @@ export default function Blog() {
     }
 
     const submitDate = () => {
-        setDate(new Date().getDate() + "." + (new Date().getMonth()) + ". at " + new Date().getHours() + ":" + new Date().getMinutes())
+        setDate(new Date().getDate() + "." + (new Date().getMonth()) + " " + new Date().getFullYear() + ". at " + new Date().getHours() + ":" + new Date().getMinutes())
     }
 
     const submitBlog = () => {
@@ -41,14 +41,14 @@ export default function Blog() {
         setImage("")
         setContent("")
     }
-
     return (
         <>
         <div className="formContainer">
+
             <div className="blogForm">
                 <h2>Whats on your mind?</h2>
                 <div>
-                    <label className="labels">Title: <input onChange={titleInput} type="text" placeholder="Name the title of your post" value={blogTitle}/></label>
+                    <label>Title: <input onChange={titleInput} type="text" placeholder="Name the title of your post" value={blogTitle}/></label>
                 </div>
 
                 <div>
@@ -56,7 +56,7 @@ export default function Blog() {
                 </div>
 
                 <div>
-                    <label className="labels">Image URL: <input onChange={imageInput} type="text" placeholder="URL of your image" value={image}/></label>
+                    <label className="labels">Image URL: <input onChange={imageInput} type="text" placeholder="URL of your image" /></label>
                 </div>
                 
                 <textarea className="test" onChange={contentInput} placeholder="Enter the content of your post:" value={content}></textarea>
@@ -75,7 +75,7 @@ export default function Blog() {
 
                     <div className="author-date">
                         <p><span className="postedBy">Blog posted by:</span> {element.name}</p>
-                        <p><span className="postedBy">Posted on: </span>{element.date}</p>
+                        <p><span className="postedBy2">Posted on:</span>{element.date}</p>
                     </div>
 
                     <div className="titleContainer">
