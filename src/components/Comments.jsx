@@ -2,7 +2,7 @@ import { useState } from "react"
 
 export default function Comments() {
     const [comments, setComments] = useState([])
-    const [commentTitle, setCommentTitle] = useState("");
+    const [commentTitle, setCommentTitle] = useState("Anonymous");
     const [commentContent, setCommentContent] = useState("");
 
     const submitComment = () => {
@@ -12,10 +12,10 @@ export default function Comments() {
     }
 
     const commentTitleInput = (e) => {
-        if(commentTitle === "") {
-            setCommentTitle("Anonymous")
-        } else {
+        if(commentTitle !== "") {
             setCommentTitle(e.target.value)
+        } else {
+            setCommentTitle("Anonymous")
         }
     }
 

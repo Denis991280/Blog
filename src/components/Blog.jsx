@@ -35,11 +35,12 @@ export default function Blog() {
         const createBlog = {id: new Date().getTime(), blogTitle, name, image, content, date}
 
         setBlogs([...blogs, createBlog])
+
+        setBlogTitle("")
+        setName("")
+        setImage("")
+        setContent("")
     }
-
-
-
-
 
     return (
         <>
@@ -47,17 +48,18 @@ export default function Blog() {
             <div className="blogForm">
                 <h2>Whats on your mind?</h2>
                 <div>
-                    <label className="labels">Title: <input onChange={titleInput} type="text" placeholder="Name the title of your post" /></label>
+                    <label className="labels">Title: <input onChange={titleInput} type="text" placeholder="Name the title of your post" value={blogTitle}/></label>
                 </div>
 
                 <div>
-                    <label className="labels">Author: <input onChange={nameInput} type="text" placeholder="Enter your name" /></label>
+                    <label className="labels">Author: <input onChange={nameInput} type="text" placeholder="Enter your name" value={name}/></label>
                 </div>
 
                 <div>
-                    <label className="labels">Image URL: <input onChange={imageInput} type="text" placeholder="URL of your image" /></label>
+                    <label className="labels">Image URL: <input onChange={imageInput} type="text" placeholder="URL of your image" value={image}/></label>
                 </div>
-                <textarea className="test" onChange={contentInput} placeholder="Enter the content of your post:"></textarea>
+                
+                <textarea className="test" onChange={contentInput} placeholder="Enter the content of your post:" value={content}></textarea>
                 <button onClick={() => {submitDate(); submitBlog()}}>Post</button>
             </div>
         </div>
@@ -90,8 +92,11 @@ export default function Blog() {
                     </div>
 
                     <span className="deleteIcon"><i class="fa-solid fa-trash fa-lg" onClick={() => {const deleteBlogs = blogs.filter((deleteSingleBlog) => {return deleteSingleBlog.id !== element.id;}); setBlogs(deleteBlogs);}}></i></span>
+                    
                 </div>
+                
                 </>
+                
             )
         })}
         </div>
