@@ -175,3 +175,9 @@ label {
   width: 70%;
   border-radius: 15px;
 }
+
+#root { 
+  background-image: url("assets/89123.jpg");
+  background-size: 100%;
+  background-repeat: repeat;
+}
