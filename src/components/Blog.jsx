@@ -27,15 +27,17 @@ export default function Blog() {
         setContent(e.target.value)
     }
 
+    const submitDate = () => {
+        setDate(new Date().getDate() + "." + (new Date().getMonth()) + ". at " + new Date().getHours() + ":" + new Date().getMinutes())
+    }
+
     const submitBlog = () => {
         const createBlog = {id: new Date().getTime(), blogTitle, name, image, content, date}
 
         setBlogs([...blogs, createBlog])
     }
 
-    const submitDate = () => {
-        setDate(new Date().getDate() + "." + (new Date().getMonth()) + ". at " + new Date().getHours() + ":" + new Date().getMinutes())
-    }
+
 
 
 
@@ -55,8 +57,8 @@ export default function Blog() {
                 <div>
                     <label className="labels">Image URL: <input onChange={imageInput} type="text" placeholder="URL of your image" /></label>
                 </div>
-                <textarea onChange={contentInput} placeholder="Enter the content of your post:"></textarea>
-                <button onClick={() => {submitBlog(); submitDate()}}>Post</button>
+                <textarea className="test" onChange={contentInput} placeholder="Enter the content of your post:"></textarea>
+                <button onClick={() => {submitDate(); submitBlog()}}>Post</button>
             </div>
         </div>
 
@@ -70,12 +72,12 @@ export default function Blog() {
                     </div>
 
                     <div className="author-date">
-                        <p>{element.name}</p>
-                        <p>Posted on: {element.date}</p>
+                        <p><span className="postedBy">Blog posted by:</span> {element.name}</p>
+                        <p><span className="postedBy">Posted on: </span>{element.date}</p>
                     </div>
 
                     <div className="titleContainer">
-                        <h2>{element.blogTitle}</h2>
+                        <h2><span className="title">Title: </span>{element.blogTitle}</h2>
                     </div>
                     
                     <div className="contentContainer">
@@ -83,9 +85,11 @@ export default function Blog() {
                     </div>
 
                     <div className="buttonsContainer">
-                    <i class="fa-solid fa-trash fa-lg" onClick={() => {const deleteBlogs = blogs.filter((deleteSingleBlog) => {return deleteSingleBlog.id !== element.id;}); setBlogs(deleteBlogs);}}></i> 
                         <LikesDislikes />
+
                     </div>
+
+                    <span className="deleteIcon"><i class="fa-solid fa-trash fa-lg" onClick={() => {const deleteBlogs = blogs.filter((deleteSingleBlog) => {return deleteSingleBlog.id !== element.id;}); setBlogs(deleteBlogs);}}></i></span>
                 </div>
                 </>
             )

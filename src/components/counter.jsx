@@ -32,9 +32,10 @@ const showCommentsBtn = () => {
 
     return (
         <>
-            <i onClick={likeBtn} class="fa-regular fa-thumbs-up fa-lg"></i>{likes}
-            <i onClick={dislikeBtn} class="fa-regular fa-thumbs-down fa-lg"></i>{dislikes}
-            <a href="#"><i onClick={showCommentsBtn} class="fa-solid fa-comments fa-lg"><span>{commentsBtn}</span></i></a>
+            <span className="likes"><i onClick={likeBtn} class="fa-regular fa-thumbs-up fa-lg"></i></span>{likes}
+            <span className="dislikes"><i onClick={dislikeBtn} class="fa-regular fa-thumbs-down fa-lg"></i></span>{dislikes}
+            <span className="comments"><i onClick={showCommentsBtn} class="fa-solid fa-comments fa-lg"></i></span><span onClick={showCommentsBtn} className="commentsLink">{commentsBtn}</span>
+            
 
             <div className={commentsToggleBtn}>
                 <Comments />
