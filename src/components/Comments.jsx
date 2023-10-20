@@ -29,7 +29,8 @@ export default function Comments() {
         <div className="commentInputContainer">
             <label className="commentName">Name: <input onChange={commentTitleInput}type="text" placeholder="Leave blank for anonymous" /></label> 
             <textarea className="test" onChange={commentContentInput} placeholder="Type your comment here"></textarea>
-            <button onClick={() => {submitComment(); commentTitleInput()}}>Comment</button>
+            {/* <button onClick={() => {submitComment(); commentTitleInput()}}>Comment</button> */}
+            <button class="button-33" role="button" onMouseEnter={() => {commentTitleInput()}} onClick={() => {submitComment()}}>Comment</button>
         </div>
 
 

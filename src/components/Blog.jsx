@@ -4,11 +4,10 @@ import LikesDislikes from "./counter";
 export default function Blog() {
     const [blogTitle, setBlogTitle] = useState("");
     const [name, setName] = useState("");
-    const [image, setImage] = useState("assets/215.jpg");
+    const [image, setImage] = useState("");
     const [content, setContent] = useState("");
     const [blogs, setBlogs] = useState([])
     const [date, setDate] = useState("")
-
 
 
     const titleInput = (e) => {
@@ -20,7 +19,12 @@ export default function Blog() {
     }
 
     const imageInput = (e) => {
-        setImage(e.target.value)
+        if(e.target.value === "") {
+            setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png")
+        } else {
+            setImage(e.target.value)
+        }
+
     }
 
     const contentInput = (e) => {
@@ -48,19 +52,19 @@ export default function Blog() {
             <div className="blogForm">
                 <h2>Whats on your mind?</h2>
                 <div>
-                    <label>Title: <input onChange={titleInput} type="text" placeholder="Name the title of your post" value={blogTitle}/></label>
+                    <label>Title: <input onChange={titleInput} type="text" placeholder="Name the title of your blog" value={blogTitle}/></label>
                 </div>
 
                 <div>
                     <label className="labels">Author: <input onChange={nameInput} type="text" placeholder="Enter your name" value={name}/></label>
                 </div>
-
                 <div>
-                    <label className="labels">Image URL: <input onChange={imageInput} type="text" placeholder="URL of your image" /></label>
+                    <label className="labels">Image URL: <input onMouseEnter={imageInput} type="text" placeholder="URL of your image" /></label>
                 </div>
                 
-                <textarea className="test" onChange={contentInput} placeholder="Enter the content of your post:" value={content}></textarea>
-                <button onClick={() => {submitDate(); submitBlog()}}>Post</button>
+                <textarea className="test" onChange={contentInput} placeholder="Enter the content of your blog:" value={content}></textarea>
+                <button class="button-33" role="button" onMouseEnter={() => {submitDate()}} onClick={() => {submitBlog()}}>Post</button>
+
             </div>
         </div>
 
