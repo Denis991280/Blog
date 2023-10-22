@@ -8,6 +8,9 @@ export default function Blog() {
     const [content, setContent] = useState("");
     const [blogs, setBlogs] = useState([])
     const [date, setDate] = useState("")
+    const [createBlog, setCreateBlog] = useState("formContainerDisabled")
+    const [createBlogBtn, setCreateBlogBtn] = useState("Create new blog +");
+    // const [defaultImg, setDefaultImage] = useState("src/assets/images.png");
 
 
     const titleInput = (e) => {
@@ -19,12 +22,7 @@ export default function Blog() {
     }
 
     const imageInput = (e) => {
-        if(e.target.value === "") {
-            setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png")
-        } else {
             setImage(e.target.value)
-        }
-
     }
 
     const contentInput = (e) => {
@@ -32,7 +30,8 @@ export default function Blog() {
     }
 
     const submitDate = () => {
-        setDate(new Date().getDate() + "." + (new Date().getMonth()) + " " + new Date().getFullYear() + ". at " + new Date().getHours() + ":" + new Date().getMinutes())
+        let date = new Date()
+        setDate(date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear() + ". at " + date.getHours().toString().padStart(2, '0') + ":" + date.getMinutes().toString().padStart(2, '0'))
     }
 
     const submitBlog = () => {
@@ -42,15 +41,35 @@ export default function Blog() {
 
         setBlogTitle("")
         setName("")
-        setImage("")
         setContent("")
+        setImage("")
     }
+
+    const toggleCreateBlog = () => {
+        if(createBlog === "formContainer") {
+            setCreateBlog("formContainerDisabled")
+        } else {
+            setCreateBlog("formContainer")
+        }
+
+        if(createBlogBtn === "Create new blog +") {
+            setCreateBlogBtn("Close")
+        } else {
+            setCreateBlogBtn("Create new blog +")
+        }
+    }
+
+
     return (
         <>
-        <div className="formContainer">
+        <div className="sa">
+            <button className="button-34" role="button" onClick={() => toggleCreateBlog()}>{createBlogBtn}</button>
+        </div>
+
+        <div className={createBlog}>
 
             <div className="blogForm">
-                <h2>Whats on your mind?</h2>
+                <h2>Create new blog!</h2>
                 <div>
                     <label>Title: <input onChange={titleInput} type="text" placeholder="Name the title of your blog" value={blogTitle}/></label>
                 </div>
@@ -59,11 +78,11 @@ export default function Blog() {
                     <label className="labels">Author: <input onChange={nameInput} type="text" placeholder="Enter your name" value={name}/></label>
                 </div>
                 <div>
-                    <label className="labels">Image URL: <input onMouseEnter={imageInput} type="text" placeholder="URL of your image" /></label>
+                    <label className="labels">Image URL: <input onChange={imageInput} type="text" placeholder="URL of your image" value={image}/></label>
                 </div>
                 
                 <textarea className="test" onChange={contentInput} placeholder="Enter the content of your blog:" value={content}></textarea>
-                <button class="button-33" role="button" onMouseEnter={() => {submitDate()}} onClick={() => {submitBlog()}}>Post</button>
+                <button className="button-33" role="button" onMouseEnter={() => {submitDate()}} onClick={() => {submitBlog()}}>Post</button>
 
             </div>
         </div>
@@ -74,7 +93,7 @@ export default function Blog() {
                 <>
                 <div className="blogElement" key={element.id}>
                     <div className="imgContainer">
-                        <img src={element.image} height={100}/>
+                        <img src={element.image} height={100} onError={(e) => {e.target.onerror = null; e.target.src ="src/assets/images.png"; }}/>
                     </div>
 
                     <div className="author-date">
@@ -92,13 +111,10 @@ export default function Blog() {
 
                     <div className="buttonsContainer">
                         <LikesDislikes />
-
                     </div>
 
-                    <span className="deleteIcon"><i class="fa-solid fa-trash fa-lg" onClick={() => {const deleteBlogs = blogs.filter((deleteSingleBlog) => {return deleteSingleBlog.id !== element.id;}); setBlogs(deleteBlogs);}}></i></span>
-                    
+                    <span className="deleteIcon"><i className="fa-solid fa-trash fa-lg" onClick={() => {const deleteBlogs = blogs.filter((deleteSingleBlog) => {return deleteSingleBlog.id !== element.id;}); setBlogs(deleteBlogs);}}></i></span>
                 </div>
-                
                 </>
                 
             )

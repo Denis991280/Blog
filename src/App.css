@@ -14,10 +14,28 @@ body {
   display: flex;
   justify-content: center;
   padding-top: 1%;
+  -webkit-animation: myfirst 2s;
+  animation: myfirst 2s;
+}
+
+@-webkit-keyframes myfirst {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes myfirst {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.formContainerDisabled {
+  display: none;
+
 }
 
 .formContainer h2 {
   padding-bottom: 1%;
+  margin-left: 3%;
 }
 
 label {
@@ -87,7 +105,7 @@ label {
 
 .postContainer {
   margin-left: 30%;
-  margin-top: 5%;
+  margin-top: 2%;
   padding-bottom: 5%;
 }
 
@@ -272,6 +290,7 @@ label {
   background-size: 100%;
 }
 
+
 .commentContentSingle {
 	position: relative;
 	max-width: 52em;
@@ -343,7 +362,7 @@ html input {
   background-color: #c2dbfb;
   border-radius: 100px;
   box-shadow: rgba(44, 134, 187, 0.2) 0 -25px 18px -14px inset,rgba(44, 134, 187, 0.2) 0 1px 2px,rgba(44, 134, 187, 0.2) 0 2px 4px,rgba(44, 134, 187, 0.2) 0 4px 8px,rgba(44, 134, 187, 0.2) 0 8px 16px,rgba(44, 134, 187, 0.2) 0 16px 32px;
-  color: blue;
+  color: rgb(82, 126, 248);
   cursor: pointer;
   display: inline-block;
   font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
@@ -356,9 +375,124 @@ html input {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  font-weight: bold;
 }
 
 .button-33:hover {
   box-shadow: rgba(44, 106, 187, 0.35) 0 -25px 18px -14px inset,rgba(44, 106, 187, 0.35) 0 1px 2px,rgba(44, 106, 187, 0.35) 0 2px 4px,rgba(44, 106, 187, 0.35) 0 4px 8px,rgba(44, 106, 187, 0.35) 0 8px 16px,rgba(44, 106, 187, 0.35) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
 }
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700');
+*{
+  margin: 0;
+  padding: 0;
+}
+.menu{
+  padding: 5px 20px;
+}
+.menu-1, .menu-5{
+  background: #4A148C;
+}
+.menu-2, .menu-4{
+  background: #6A1B9A;
+}
+.menu-3{
+  background: #1C202C;
+}
+.menu ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.menu li{
+  display: inline-block;
+  margin: 0 15px;
+}
+.menu a{
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  position: relative;
+  padding: 4px 8px 4px 10px;
+}
+.menu a::before{
+  content: "";
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  transition: 0.5s transform ease;
+  transform: scale3d(0,1,1);
+  transform-origin: 0 50%;
+}
+.menu a:hover::before{
+  transform: scale3d(1,1,1);
+}
+.menu-1 a::before{
+  background: #E91E63;
+  transform-origin: 100% 50%;
+}
+.menu-1 a:hover::before{
+  transform-origin: 0 50%;
+}
+.menu-2 a::before{
+  background: #EC407A;
+}
+.menu-3 a::before{
+  transform-origin: 50% 50%;
+  background: #E43240;
+}
+.menu-4 a::before{
+  transform-origin: 100% 50%;
+  background: #EC407A;
+}
+.menu-5 a::before{
+  background: #E91E63;
+  transform-origin: 0 50%;
+}
+.menu-5 a:hover::before{
+  transform-origin: 100% 50%;
+}
+
+.sa {
+  display: flex;
+  justify-content: center;
+  margin-top: 1%;
+}
+
+.button-34 {
+  background-color: #4c5152;
+  border-radius: 100px;
+  box-shadow: rgba(236, 233, 233, 0.2) 0 -25px 18px -14px inset,rgba(236, 233, 233, 0.2) 0 1px 2px,rgba(236, 233, 233, 0.2) 0 2px 4px,rgba(236, 233, 233, 0.2) 0 4px 8px,rgba(236, 233, 233, 0.2) 0 8px 16px,rgba(236, 233, 233, 0.2) 0 16px 32px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-weight: bold;
+  margin-top: 0.5%;
+}
+
+.button-34:hover {
+  box-shadow: rgba(245, 242, 242, 0.2) 0 -25px 18px -14px inset,rgba(173, 172, 172, 0.2) 0 1px 2px,rgba(173, 172, 172, 0.2) 0 2px 4px,rgba(173, 172, 172, 0.2) 0 4px 8px,rgba(173, 172, 172, 0.2) 0 8px 16px,rgba(173, 172, 172, 0.2) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+  background-color: #848788;
+}
+
+/*---
+
+*/
