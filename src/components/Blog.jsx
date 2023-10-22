@@ -93,7 +93,7 @@ export default function Blog() {
                 <>
                 <div className="blogElement" key={element.id}>
                     <div className="imgContainer">
-                        <img src={element.image} height={100} onError={(e) => {e.target.onerror = null; e.target.src ="src/assets/images.png"; }}/>
+                        <img src={element.image} height={100} onError={(e) => {e.target.onerror = null; e.target.src ="src/assets/error.png"; }}/>
                     </div>
 
                     <div className="author-date">
