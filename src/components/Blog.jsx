@@ -10,7 +10,6 @@ export default function Blog() {
     const [date, setDate] = useState("")
     const [createBlog, setCreateBlog] = useState("formContainerDisabled")
     const [createBlogBtn, setCreateBlogBtn] = useState("Create new blog +");
-    // const [defaultImg, setDefaultImage] = useState("src/assets/images.png");
 
 
     const titleInput = (e) => {
